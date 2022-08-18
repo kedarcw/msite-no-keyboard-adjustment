@@ -32,10 +32,16 @@
                 background-color: rgb(225, 255, 0);
                 padding: 16px;
             }
+            .u-oh {
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+                position: fixed;
+            }
         </style>
     </head>
     <body>
-        <div class="parent">
+        <div class="parent" id="parent">
             <div class="header">Header</div>
             <div>
                 Content
@@ -49,10 +55,8 @@
             $(window).on('resize', function(){ 
                 var tHeight=$(window).height();
                 if(tHeight<windowWidth){
-                    document.documentElement.style.setProperty('overflow', 'auto')
-                    const metaViewport = document.querySelector('meta[name=viewport]')
-                    metaViewport.setAttribute('content', 'height=' + windowHeight + 'px, width=device-width, initial-scale=1.0')
-                    }
+                    $("#parent").addClass("u-oh");
+                }
             });
        </script>
     </body>
