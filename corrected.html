@@ -44,10 +44,10 @@
             <div class="footer">Footer</div>
         </div>
        <script>
-            var windowWidth=getWidth(),windowHeight=getHeight();
-            
+            var windowHeight=$(window).height();
+
             $(window).on('resize', function(){ 
-                var tHeight=getHeight();
+                var tHeight=$(window).height();
                 if(tHeight<windowWidth){
                     document.documentElement.style.setProperty('overflow', 'auto')
                     const metaViewport = document.querySelector('meta[name=viewport]')
