@@ -9,15 +9,18 @@
                 margin: 0;
                 padding: 0%;
             }
-            html,body{
+            html{
                 height: 100%;
+            }
+            body{
+                height: 100vh;
             }
             .parent{
                 height: 100%;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
                 text-align: center;
+                justify-content: space-between;
             }
             .header{
                 background-color: rgb(189, 47, 255);
@@ -29,14 +32,8 @@
                 border-color: rgb(42, 165, 142);
             }
             .footer{
-                background-color: rgb(0, 145, 255);
+                background-color: rgb(255, 0, 0);
                 padding: 16px;
-            }
-            .u-oh {
-                overflow: hidden;
-                height: 100%;
-                width: 100%;
-                position: fixed;
             }
         </style>
     </head>
@@ -47,17 +44,24 @@
                 Content
                 <input type="text" placeholder="type here">
             </div>
-            <div class="footer">Footer</div>
+            <div class="footer" id="footer">Footer</div>
         </div>
-       <script>
-            var windowHeight=$(window).height();
 
+       <script>
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        $("html, body").css({"width":w,"height":h});
+        $("#footer").css({top:h+"px"});
+        
+            /* var windowHeight=$(window).height();
+            var theight = $(window).height();
             $(window).on('resize', function(){ 
-                var tHeight=$(window).height();
-                if(tHeight<windowWidth){
-                    $("#parent").addClass("u-oh");
-                }
+                theight=$(window).height();
             });
+            if(theight==windowHeight)
+                alert("Error");
+            else    
+                alert("No error"); */
        </script>
     </body>
 </html>
